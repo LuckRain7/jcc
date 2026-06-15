@@ -1,6 +1,7 @@
 import { createHmac, timingSafeEqual } from "crypto";
+import { COOKIE_NAME } from "./cookie-name";
 
-export const COOKIE_NAME = "tft_auth";
+export { COOKIE_NAME };
 const PAYLOAD = "tft-comp-auth";
 
 function expectedToken(secret: string): string {
