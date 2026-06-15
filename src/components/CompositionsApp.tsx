@@ -22,40 +22,42 @@ export function CompositionsApp() {
   const [seedError, setSeedError] = useState(false);
   const [dirty, setDirtyState] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>("idle");
-  const [pullStatus, setPullStatus] = useState<"idle" | "pulling" | "error">("idle");
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Composition | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // 初始加载：本地优先，本地为空时从云端拉一次种子
+  // 每次加载：先用本地缓存秒开，再从云端拉取覆盖（远端为准）
   useEffect(() => {
     let cancelled = false;
-    async function init() {
-      const local = loadLocal();
-      if (local !== null) {
-        setItems(local);
-        setDirtyState(isDirty());
-        setLoading(false);
-        return;
-      }
+    const local = loadLocal();
+    if (local !== null) {
+      setItems(local);
+      setDirtyState(isDirty());
+      setLoading(false);
+    }
+    async function refresh() {
       try {
         const res = await fetch("/api/compositions");
-        if (!res.ok) throw new Error("seed failed");
-        const seeded: Composition[] = (await res.json()).items ?? [];
+        if (!res.ok) throw new Error("load failed");
+        const cloud: Composition[] = (await res.json()).items ?? [];
         if (cancelled) return;
-        saveLocal(seeded);
-        setItems(seeded);
+        saveLocal(cloud);
+        setItems(cloud);
+        setDirty(false);
+        setDirtyState(false);
+        setSeedError(false);
       } catch {
         if (cancelled) return;
-        // 种子拉取失败：不写空缓存（保持 loadLocal()===null，刷新会重试），
-        // 并标记错误、禁用同步，避免用空数据覆盖云端。
-        setSeedError(true);
-        setItems([]);
+        // 云端拉取失败：有本地缓存就继续用本地（离线兜底）；没有则标记错误
+        if (local === null) {
+          setSeedError(true);
+          setItems([]);
+        }
       } finally {
         if (!cancelled) setLoading(false);
       }
     }
-    init();
+    refresh();
     return () => {
       cancelled = true;
     };
@@ -122,30 +124,6 @@ export function CompositionsApp() {
     }
   }
 
-  // 从云端拉取：用云端数据覆盖本地（有未同步改动先确认）
-  async function handlePull() {
-    if (dirty && !window.confirm("有未同步的本地修改，从云端拉取会覆盖它们，确定要拉取吗？")) {
-      return;
-    }
-    setPullStatus("pulling");
-    try {
-      const res = await fetch("/api/compositions");
-      if (!res.ok) {
-        setPullStatus("error");
-        return;
-      }
-      const cloud: Composition[] = (await res.json()).items ?? [];
-      saveLocal(cloud);
-      setItems(cloud);
-      setDirty(false);
-      setDirtyState(false);
-      setSeedError(false);
-      setPullStatus("idle");
-    } catch {
-      setPullStatus("error");
-    }
-  }
-
   const sorted = [...items].sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
   const syncLabel =
     syncStatus === "syncing"
@@ -161,18 +139,6 @@ export function CompositionsApp() {
       <header className="mb-4 flex items-center justify-between gap-2">
         <h1 className="text-xl font-bold">金铲铲阵容码</h1>
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={handlePull}
-            disabled={pullStatus === "pulling"}
-            className={`rounded-lg border px-2.5 py-1.5 text-sm font-medium disabled:opacity-50 ${
-              pullStatus === "error"
-                ? "border-red-400 text-red-600"
-                : "border-neutral-300 active:bg-neutral-100 dark:border-neutral-700 dark:active:bg-neutral-800"
-            }`}
-          >
-            {pullStatus === "pulling" ? "拉取中…" : pullStatus === "error" ? "拉取失败" : "从云端拉取"}
-          </button>
           <button
             type="button"
             onClick={handleSync}
