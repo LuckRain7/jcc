@@ -22,6 +22,7 @@ export function CompositionsApp() {
   const [seedError, setSeedError] = useState(false);
   const [dirty, setDirtyState] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>("idle");
+  const [pullStatus, setPullStatus] = useState<"idle" | "pulling" | "error">("idle");
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Composition | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -121,6 +122,30 @@ export function CompositionsApp() {
     }
   }
 
+  // 从云端拉取：用云端数据覆盖本地（有未同步改动先确认）
+  async function handlePull() {
+    if (dirty && !window.confirm("有未同步的本地修改，从云端拉取会覆盖它们，确定要拉取吗？")) {
+      return;
+    }
+    setPullStatus("pulling");
+    try {
+      const res = await fetch("/api/compositions");
+      if (!res.ok) {
+        setPullStatus("error");
+        return;
+      }
+      const cloud: Composition[] = (await res.json()).items ?? [];
+      saveLocal(cloud);
+      setItems(cloud);
+      setDirty(false);
+      setDirtyState(false);
+      setSeedError(false);
+      setPullStatus("idle");
+    } catch {
+      setPullStatus("error");
+    }
+  }
+
   const sorted = [...items].sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
   const syncLabel =
     syncStatus === "syncing"
@@ -136,14 +161,23 @@ export function CompositionsApp() {
       <header className="mb-4 flex items-center justify-between gap-2">
         <h1 className="text-xl font-bold">金铲铲阵容码</h1>
         <div className="flex items-center gap-2">
-          {dirty && syncStatus === "idle" && (
-            <span className="text-xs text-amber-600">有未同步的修改</span>
-          )}
+          <button
+            type="button"
+            onClick={handlePull}
+            disabled={pullStatus === "pulling"}
+            className={`rounded-lg border px-2.5 py-1.5 text-sm font-medium disabled:opacity-50 ${
+              pullStatus === "error"
+                ? "border-red-400 text-red-600"
+                : "border-neutral-300 active:bg-neutral-100 dark:border-neutral-700 dark:active:bg-neutral-800"
+            }`}
+          >
+            {pullStatus === "pulling" ? "拉取中…" : pullStatus === "error" ? "拉取失败" : "从云端拉取"}
+          </button>
           <button
             type="button"
             onClick={handleSync}
             disabled={syncStatus === "syncing" || seedError}
-            className={`relative rounded-lg border px-3 py-1.5 text-sm font-medium disabled:opacity-50 ${
+            className={`relative rounded-lg border px-2.5 py-1.5 text-sm font-medium disabled:opacity-50 ${
               syncStatus === "error"
                 ? "border-red-400 text-red-600"
                 : "border-neutral-300 active:bg-neutral-100 dark:border-neutral-700 dark:active:bg-neutral-800"
