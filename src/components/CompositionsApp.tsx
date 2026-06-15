@@ -57,6 +57,10 @@ export function CompositionsApp() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(value),
       });
+      if (res.status === 401) {
+        router.replace("/login");
+        return;
+      }
       if (!res.ok) {
         setError("保存失败");
         return;
@@ -71,6 +75,10 @@ export function CompositionsApp() {
 
   async function handleDelete(id: string) {
     const res = await fetch(`/api/compositions/${id}`, { method: "DELETE" });
+    if (res.status === 401) {
+      router.replace("/login");
+      return;
+    }
     if (res.ok) {
       setItems((prev) => prev.filter((i) => i.id !== id));
     }
