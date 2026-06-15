@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 export function CopyButton({ code }: { code: string }) {
   const [status, setStatus] = useState<"idle" | "copied" | "fallback">("idle");
