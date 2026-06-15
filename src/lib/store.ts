@@ -38,6 +38,7 @@ async function readFile(cfg: RepoConfig): Promise<FileState> {
     headers: {
       Authorization: `Bearer ${cfg.token}`,
       Accept: "application/vnd.github+json",
+      "User-Agent": "jcc-app",
     },
     cache: "no-store",
   });
@@ -68,6 +69,7 @@ async function writeFile(
       Authorization: `Bearer ${cfg.token}`,
       Accept: "application/vnd.github+json",
       "Content-Type": "application/json",
+      "User-Agent": "jcc-app",
     },
     body: JSON.stringify(body),
   });
