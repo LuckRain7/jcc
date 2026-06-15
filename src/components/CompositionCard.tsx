@@ -1,6 +1,6 @@
 "use client";
 
-import type { Composition } from "@/lib/store";
+import type { Composition } from "@/lib/types";
 import { CopyButton } from "./CopyButton";
 
 export function CompositionCard({

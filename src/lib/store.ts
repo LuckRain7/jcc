@@ -1,14 +1,4 @@
-import { randomUUID } from "crypto";
-import type { CompositionInput } from "./validate";
-
-export interface Composition {
-  id: string;
-  name: string;
-  note: string | null;
-  code: string;
-  created_at: string;
-  updated_at: string;
-}
+import type { Composition } from "./types";
 
 const DATA_PATH = "data/compositions.json";
 
@@ -108,42 +98,12 @@ export async function listCompositions(): Promise<Composition[]> {
   return [...items].sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
 }
 
-export async function createComposition(input: CompositionInput): Promise<Composition> {
-  return mutate((items) => {
-    const now = new Date().toISOString();
-    const item: Composition = {
-      id: randomUUID(),
-      name: input.name,
-      note: input.note,
-      code: input.code,
-      created_at: now,
-      updated_at: now,
-    };
-    return { items: [...items, item], message: `chore(data): add ${input.name}`, result: item };
-  });
-}
-
-export async function updateComposition(id: string, input: CompositionInput): Promise<Composition> {
-  return mutate((items) => {
-    const idx = items.findIndex((i) => i.id === id);
-    if (idx === -1) throw new Error("阵容不存在");
-    const updated: Composition = {
-      ...items[idx],
-      name: input.name,
-      code: input.code,
-      note: input.note,
-      updated_at: new Date().toISOString(),
-    };
-    const next = [...items];
-    next[idx] = updated;
-    return { items: next, message: `chore(data): update ${input.name}`, result: updated };
-  });
-}
-
-export async function deleteComposition(id: string): Promise<void> {
-  return mutate((items) => ({
-    items: items.filter((i) => i.id !== id),
-    message: `chore(data): delete ${id}`,
+// 同步：用传入的 items 整体覆盖 GitHub 文件（推为主）。
+// 复用 mutate 的"读 sha → 写 → 冲突重试"，apply 忽略云端现状直接返回本地 items。
+export async function replaceAllCompositions(items: Composition[]): Promise<void> {
+  return mutate(() => ({
+    items,
+    message: `chore(data): sync ${items.length} 条阵容`,
     result: undefined,
   }));
 }

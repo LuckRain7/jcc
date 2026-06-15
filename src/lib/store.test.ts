@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { listCompositions, createComposition } from "./store";
+import { listCompositions, replaceAllCompositions } from "./store";
 
 const b64 = (obj: unknown) => Buffer.from(JSON.stringify(obj)).toString("base64");
 
@@ -32,32 +32,32 @@ describe("store", () => {
     expect(await listCompositions()).toEqual([]);
   });
 
-  it("createComposition 追加并 PUT，body 含 base64 content 与 sha", async () => {
+  it("replaceAllCompositions 读取当前 sha 后整体 PUT 传入的 items", async () => {
+    const items = [
+      { id: "1", name: "x", note: null, code: "y", created_at: "t", updated_at: "t" },
+    ];
     const fetchMock = vi.fn()
       .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ content: b64({ items: [] }), sha: "sha1" }) })
       .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({}) });
     vi.stubGlobal("fetch", fetchMock);
-    const item = await createComposition({ name: "x", code: "y", note: null });
-    expect(item.name).toBe("x");
-    expect(item.id).toBeTruthy();
+    await replaceAllCompositions(items);
     const putArgs = fetchMock.mock.calls[1][1];
     expect(putArgs.method).toBe("PUT");
     const putBody = JSON.parse(putArgs.body);
     expect(putBody.sha).toBe("sha1");
     const written = JSON.parse(Buffer.from(putBody.content, "base64").toString("utf-8"));
-    expect(written.items).toHaveLength(1);
-    expect(written.items[0].name).toBe("x");
+    expect(written.items).toEqual(items);
   });
 
   it("写冲突(409)时重新读取 sha 并重试一次", async () => {
+    const items = [{ id: "1", name: "x", note: null, code: "y", created_at: "t", updated_at: "t" }];
     const fetchMock = vi.fn()
       .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ content: b64({ items: [] }), sha: "old" }) })
       .mockResolvedValueOnce({ ok: false, status: 409, json: async () => ({}) })
       .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ content: b64({ items: [] }), sha: "new" }) })
       .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({}) });
     vi.stubGlobal("fetch", fetchMock);
-    const item = await createComposition({ name: "x", code: "y", note: null });
-    expect(item.name).toBe("x");
+    await replaceAllCompositions(items);
     expect(fetchMock).toHaveBeenCalledTimes(4);
     const secondPut = JSON.parse(fetchMock.mock.calls[3][1].body);
     expect(secondPut.sha).toBe("new");

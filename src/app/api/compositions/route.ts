@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { listCompositions, createComposition } from "@/lib/store";
-import { validateCompositionInput } from "@/lib/validate";
+import { listCompositions, replaceAllCompositions } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
+// 拉云端全部（仅用于本地缓存为空时的种子）
 export async function GET() {
   try {
     const items = await listCompositions();
@@ -13,15 +13,15 @@ export async function GET() {
   }
 }
 
+// 同步：用请求体的 items 整体覆盖云端（推为主）
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
-  const result = validateCompositionInput(body);
-  if (!result.ok) {
-    return NextResponse.json({ error: result.error }, { status: 400 });
+  if (!body || !Array.isArray(body.items)) {
+    return NextResponse.json({ error: "items 必须是数组" }, { status: 400 });
   }
   try {
-    const item = await createComposition(result.value);
-    return NextResponse.json({ item }, { status: 201 });
+    await replaceAllCompositions(body.items);
+    return NextResponse.json({ ok: true });
   } catch (e) {
     return NextResponse.json({ error: (e as Error).message }, { status: 500 });
   }

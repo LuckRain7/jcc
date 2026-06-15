@@ -1,39 +1,68 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import type { Composition } from "@/lib/store";
+import { useEffect, useState } from "react";
+import type { Composition } from "@/lib/types";
+import {
+  loadLocal,
+  saveLocal,
+  isDirty,
+  setDirty,
+  createLocal,
+  updateLocal,
+  deleteLocal,
+} from "@/lib/localStore";
 import { CompositionCard } from "./CompositionCard";
 import { CompositionForm, type CompositionFormValue } from "./CompositionForm";
+
+type SyncStatus = "idle" | "syncing" | "synced" | "error";
 
 export function CompositionsApp() {
   const [items, setItems] = useState<Composition[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [dirty, setDirtyState] = useState(false);
+  const [syncStatus, setSyncStatus] = useState<SyncStatus>("idle");
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Composition | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/compositions");
-      if (!res.ok) {
-        setError("加载失败，请重试");
+  // 初始加载：本地优先，本地为空时从云端拉一次种子
+  useEffect(() => {
+    let cancelled = false;
+    async function init() {
+      const local = loadLocal();
+      if (local !== null) {
+        setItems(local);
+        setDirtyState(isDirty());
+        setLoading(false);
         return;
       }
-      const json = await res.json();
-      setItems(json.items ?? []);
-    } catch {
-      setError("加载失败，请重试");
-    } finally {
-      setLoading(false);
+      try {
+        const res = await fetch("/api/compositions");
+        const seeded: Composition[] = res.ok ? ((await res.json()).items ?? []) : [];
+        if (cancelled) return;
+        saveLocal(seeded);
+        setItems(seeded);
+      } catch {
+        if (cancelled) return;
+        saveLocal([]);
+        setItems([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
     }
+    init();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  useEffect(() => {
-    load();
-  }, [load]);
+  // 写本地并标记未同步
+  function persist(next: Composition[]) {
+    setItems(next);
+    saveLocal(next);
+    setDirty(true);
+    setDirtyState(true);
+  }
 
   function openCreate() {
     setEditing(null);
@@ -45,56 +74,87 @@ export function CompositionsApp() {
     setShowForm(true);
   }
 
-  async function handleSubmit(value: CompositionFormValue) {
+  function handleSubmit(value: CompositionFormValue) {
     setSubmitting(true);
     try {
-      const url = editing ? `/api/compositions/${editing.id}` : "/api/compositions";
-      const method = editing ? "PUT" : "POST";
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(value),
-      });
-      if (!res.ok) {
-        setError("保存失败");
-        return;
-      }
+      persist(editing ? updateLocal(items, editing.id, value) : createLocal(items, value));
       setShowForm(false);
       setEditing(null);
-      await load();
     } finally {
       setSubmitting(false);
     }
   }
 
-  async function handleDelete(id: string) {
-    const res = await fetch(`/api/compositions/${id}`, { method: "DELETE" });
-    if (res.ok) {
-      setItems((prev) => prev.filter((i) => i.id !== id));
+  function handleDelete(id: string) {
+    persist(deleteLocal(items, id));
+  }
+
+  async function handleSync() {
+    setSyncStatus("syncing");
+    try {
+      const res = await fetch("/api/compositions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items }),
+      });
+      if (!res.ok) {
+        setSyncStatus("error");
+        return;
+      }
+      setDirty(false);
+      setDirtyState(false);
+      setSyncStatus("synced");
+      setTimeout(() => setSyncStatus("idle"), 1500);
+    } catch {
+      setSyncStatus("error");
     }
   }
 
+  const sorted = [...items].sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
+  const syncLabel =
+    syncStatus === "syncing"
+      ? "同步中…"
+      : syncStatus === "synced"
+        ? "已同步 ✓"
+        : syncStatus === "error"
+          ? "同步失败"
+          : "同步";
+
   return (
     <main className="mx-auto max-w-2xl p-4 pb-24">
-      <header className="mb-4 flex items-center justify-between">
+      <header className="mb-4 flex items-center justify-between gap-2">
         <h1 className="text-xl font-bold">金铲铲阵容码</h1>
+        <div className="flex items-center gap-2">
+          {dirty && syncStatus === "idle" && (
+            <span className="text-xs text-amber-600">有未同步的修改</span>
+          )}
+          <button
+            type="button"
+            onClick={handleSync}
+            disabled={syncStatus === "syncing"}
+            className={`relative rounded-lg border px-3 py-1.5 text-sm font-medium disabled:opacity-50 ${
+              syncStatus === "error"
+                ? "border-red-400 text-red-600"
+                : "border-neutral-300 active:bg-neutral-100 dark:border-neutral-700 dark:active:bg-neutral-800"
+            }`}
+          >
+            {syncLabel}
+            {dirty && syncStatus === "idle" && (
+              <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-red-500" />
+            )}
+          </button>
+        </div>
       </header>
 
       {loading && <p className="text-center text-neutral-500">加载中…</p>}
-      {error && <p className="text-center text-red-600">{error}</p>}
 
       {!loading && items.length === 0 && (
         <p className="mt-16 text-center text-neutral-400">还没有阵容，点右下角 + 添加</p>
       )}
 
       <div className="space-y-3">
-        {items.map((item) => (
-          <CompositionCard
-            key={item.id}
-            item={item}
-            onEdit={openEdit}
-            onDelete={handleDelete}
-          />
+        {sorted.map((item) => (
+          <CompositionCard key={item.id} item={item} onEdit={openEdit} onDelete={handleDelete} />
         ))}
       </div>
 
@@ -112,9 +172,7 @@ export function CompositionsApp() {
       {showForm && (
         <div className="fixed inset-0 z-10 flex items-end justify-center bg-black/40 sm:items-center">
           <div className="w-full max-w-md rounded-t-2xl bg-white p-4 dark:bg-neutral-900 sm:rounded-2xl">
-            <h2 className="mb-3 text-lg font-semibold">
-              {editing ? "编辑阵容" : "新增阵容"}
-            </h2>
+            <h2 className="mb-3 text-lg font-semibold">{editing ? "编辑阵容" : "新增阵容"}</h2>
             <CompositionForm
               initial={editing}
               submitting={submitting}
