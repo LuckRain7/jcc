@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import type { Composition } from "@/lib/compositions";
+import type { Composition } from "@/lib/store";
 import { CompositionCard } from "./CompositionCard";
 import { CompositionForm, type CompositionFormValue } from "./CompositionForm";
 
 export function CompositionsApp() {
-  const router = useRouter();
   const [items, setItems] = useState<Composition[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -20,8 +18,8 @@ export function CompositionsApp() {
     setError("");
     try {
       const res = await fetch("/api/compositions");
-      if (res.status === 401) {
-        router.replace("/login");
+      if (!res.ok) {
+        setError("加载失败，请重试");
         return;
       }
       const json = await res.json();
@@ -31,7 +29,7 @@ export function CompositionsApp() {
     } finally {
       setLoading(false);
     }
-  }, [router]);
+  }, []);
 
   useEffect(() => {
     load();
@@ -57,10 +55,6 @@ export function CompositionsApp() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(value),
       });
-      if (res.status === 401) {
-        router.replace("/login");
-        return;
-      }
       if (!res.ok) {
         setError("保存失败");
         return;
@@ -75,10 +69,6 @@ export function CompositionsApp() {
 
   async function handleDelete(id: string) {
     const res = await fetch(`/api/compositions/${id}`, { method: "DELETE" });
-    if (res.status === 401) {
-      router.replace("/login");
-      return;
-    }
     if (res.ok) {
       setItems((prev) => prev.filter((i) => i.id !== id));
     }

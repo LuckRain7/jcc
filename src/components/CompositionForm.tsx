@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Composition } from "@/lib/compositions";
+import type { Composition } from "@/lib/store";
 
 export interface CompositionFormValue {
   name: string;
