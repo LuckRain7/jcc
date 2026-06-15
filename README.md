@@ -1,19 +1,20 @@
 # 金铲铲阵容码
 
-个人用的金铲铲阵容码收藏工具，跨设备同步，一键复制阵容码到剪贴板。电脑和手机浏览器都能完整增删改查。
+个人用的金铲铲阵容码收藏工具：跨设备同步、一键复制阵容码到剪贴板，电脑和手机浏览器都能完整增删改查。数据存在本仓库的 `data/compositions.json`，通过 GitHub API 读写，无需数据库。无登录验证（数据非隐私）。
 
 ## 技术栈
 
-Next.js 15（App Router）· TypeScript · Tailwind CSS v4 · Supabase（Postgres）· Vercel · Vitest
+Next.js 15（App Router）· TypeScript · Tailwind CSS v4 · GitHub Contents API（数据存储）· Vercel · Vitest
 
 ## 本地开发
 
 1. 复制环境变量模板：`cp .env.local.example .env.local`，填入：
-   - `APP_PASSWORD`：访问密码
-   - `SESSION_SECRET`：随机串，可用 `openssl rand -hex 32` 生成
-   - `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`：来自 Supabase 项目设置 → API
-2. 在 Supabase 的 SQL Editor 执行 `supabase/schema.sql` 建表
-3. `npm install && npm run dev`，访问 http://localhost:3000
+   - `GITHUB_TOKEN`：GitHub 细粒度 PAT，对本仓库授予 **Contents: Read and write**（GitHub Settings → Developer settings → Personal access tokens → Fine-grained tokens）
+   - `GITHUB_REPO`：`LuckRain7/jcc`
+   - `GITHUB_BRANCH`：`master`
+2. `npm install && npm run dev`，访问 http://localhost:3000
+
+> 注意：本地开发时的增删改会直接写到 GitHub 上的 `master` 分支（线上同一份数据）。
 
 ## 测试
 
@@ -23,12 +24,12 @@ npm run test
 
 ## 部署到 Vercel
 
-1. 推送代码到 GitHub，在 Vercel 导入该仓库
-2. 在 Vercel 项目 Settings → Environment Variables 配置 `APP_PASSWORD`、`SESSION_SECRET`、`SUPABASE_URL`、`SUPABASE_SERVICE_ROLE_KEY`
-3. Deploy。访问分配的 https 域名，在电脑和手机浏览器各登录一次即可。
+1. 在 Vercel 导入本 GitHub 仓库
+2. Settings → Environment Variables 配置 `GITHUB_TOKEN`、`GITHUB_REPO`、`GITHUB_BRANCH`
+3. Deploy。`vercel.json` 的 `ignoreCommand` 会让"仅修改数据文件"的提交跳过重新部署。
 
-## 安全说明
+## 说明
 
-- 单用户密码门：登录后下发 HMAC 签名的 httpOnly cookie（有效期 30 天）。
-- 真正的鉴权在 API 层验签；middleware 仅负责未登录跳转登录页。
-- Supabase service role key 只在服务端使用，不会下发到浏览器。
+- 数据写入会向仓库提交 commit（commit message 形如 `chore(data): add 阵容名`）。
+- 无鉴权：任何能访问网址的人都能增删改阵容；`GITHUB_TOKEN` 只在服务端 API 路由使用，不会下发浏览器。
+- 单用户使用，写入用 sha 乐观锁，冲突自动重试一次。
