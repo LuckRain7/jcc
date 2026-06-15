@@ -41,6 +41,12 @@ describe("POST /api/compositions（同步覆盖）", () => {
     expect(res.status).toBe(400);
   });
 
+  it("items 内含格式不对的对象返回 400", async () => {
+    const req = new Request("http://x", { method: "POST", body: JSON.stringify({ items: [{ foo: 1 }] }) });
+    const res = await POST(req);
+    expect(res.status).toBe(400);
+  });
+
   it("合法 items 整体覆盖并返回 200", async () => {
     vi.mocked(replaceAllCompositions).mockResolvedValue(undefined);
     const items = [{ id: "1", name: "a", note: null, code: "c", created_at: "t", updated_at: "t" }];

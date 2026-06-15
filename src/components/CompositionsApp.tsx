@@ -19,6 +19,7 @@ type SyncStatus = "idle" | "syncing" | "synced" | "error";
 export function CompositionsApp() {
   const [items, setItems] = useState<Composition[]>([]);
   const [loading, setLoading] = useState(true);
+  const [seedError, setSeedError] = useState(false);
   const [dirty, setDirtyState] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>("idle");
   const [showForm, setShowForm] = useState(false);
@@ -38,13 +39,16 @@ export function CompositionsApp() {
       }
       try {
         const res = await fetch("/api/compositions");
-        const seeded: Composition[] = res.ok ? ((await res.json()).items ?? []) : [];
+        if (!res.ok) throw new Error("seed failed");
+        const seeded: Composition[] = (await res.json()).items ?? [];
         if (cancelled) return;
         saveLocal(seeded);
         setItems(seeded);
       } catch {
         if (cancelled) return;
-        saveLocal([]);
+        // 种子拉取失败：不写空缓存（保持 loadLocal()===null，刷新会重试），
+        // 并标记错误、禁用同步，避免用空数据覆盖云端。
+        setSeedError(true);
         setItems([]);
       } finally {
         if (!cancelled) setLoading(false);
@@ -91,18 +95,25 @@ export function CompositionsApp() {
 
   async function handleSync() {
     setSyncStatus("syncing");
+    const snapshot = items; // 同步时刻的快照
     try {
       const res = await fetch("/api/compositions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+        body: JSON.stringify({ items: snapshot }),
       });
       if (!res.ok) {
         setSyncStatus("error");
         return;
       }
-      setDirty(false);
-      setDirtyState(false);
+      // 仅当同步期间没有新的本地改动（引用未变）时才清除 dirty
+      setItems((current) => {
+        if (current === snapshot) {
+          setDirty(false);
+          setDirtyState(false);
+        }
+        return current;
+      });
       setSyncStatus("synced");
       setTimeout(() => setSyncStatus("idle"), 1500);
     } catch {
@@ -131,7 +142,7 @@ export function CompositionsApp() {
           <button
             type="button"
             onClick={handleSync}
-            disabled={syncStatus === "syncing"}
+            disabled={syncStatus === "syncing" || seedError}
             className={`relative rounded-lg border px-3 py-1.5 text-sm font-medium disabled:opacity-50 ${
               syncStatus === "error"
                 ? "border-red-400 text-red-600"
@@ -148,7 +159,13 @@ export function CompositionsApp() {
 
       {loading && <p className="text-center text-neutral-500">加载中…</p>}
 
-      {!loading && items.length === 0 && (
+      {seedError && (
+        <p className="mb-3 rounded-lg bg-red-50 p-3 text-center text-sm text-red-600 dark:bg-red-950">
+          云端数据加载失败，请刷新页面重试
+        </p>
+      )}
+
+      {!loading && !seedError && items.length === 0 && (
         <p className="mt-16 text-center text-neutral-400">还没有阵容，点右下角 + 添加</p>
       )}
 

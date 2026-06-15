@@ -19,6 +19,17 @@ export async function POST(req: Request) {
   if (!body || !Array.isArray(body.items)) {
     return NextResponse.json({ error: "items 必须是数组" }, { status: 400 });
   }
+  const valid = body.items.every(
+    (i: unknown) =>
+      !!i &&
+      typeof i === "object" &&
+      typeof (i as { id?: unknown }).id === "string" &&
+      typeof (i as { name?: unknown }).name === "string" &&
+      typeof (i as { code?: unknown }).code === "string",
+  );
+  if (!valid) {
+    return NextResponse.json({ error: "items 内容格式不正确" }, { status: 400 });
+  }
   try {
     await replaceAllCompositions(body.items);
     return NextResponse.json({ ok: true });
