@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "id": "10bb2c39-0e4b-4367-956c-583fa84b886a",
+      "name": "#坦度成双莎米拉2.0【文姐】",
+      "code": "【阵容码】#坦度成双莎米拉2.0【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwNzc0NzQxOTIy",
+      "note": null,
+      "created_at": "2026-06-16T02:15:23.966Z",
+      "updated_at": "2026-06-16T02:15:23.966Z"
+    },
+    {
+      "id": "66dd639e-1f7d-48ad-b9d8-84f3a755d1eb",
+      "name": "#7律动奥恩莎弥拉【文姐】",
+      "code": "【阵容码】#7律动奥恩莎弥拉【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwNjc2NzY0NDA2",
+      "note": null,
+      "created_at": "2026-06-16T02:14:37.422Z",
+      "updated_at": "2026-06-16T02:14:37.422Z"
+    },
+    {
       "id": "a00f8a1f-2655-4c2a-9246-356358079878",
       "name": "#狂潮之心海魔至尊【文姐】",
       "code": "【阵容码】#狂潮之心海魔至尊【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzc4NzYzODc3NjU2",
@@ -111,22 +127,6 @@
       "code": "【阵容码】#新星一刀流三板甲剑魔【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwOTE1MTgzOTk0",
       "created_at": "2026-06-15T07:11:49.673Z",
       "updated_at": "2026-06-15T07:11:59.301Z"
-    },
-    {
-      "id": "66dd639e-1f7d-48ad-b9d8-84f3a755d1eb",
-      "name": "#7律动奥恩莎弥拉【文姐】",
-      "code": "【阵容码】#7律动奥恩莎弥拉【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwNjc2NzY0NDA2",
-      "note": null,
-      "created_at": "2026-06-16T02:14:37.422Z",
-      "updated_at": "2026-06-16T02:14:37.422Z"
-    },
-    {
-      "id": "10bb2c39-0e4b-4367-956c-583fa84b886a",
-      "name": "#坦度成双莎米拉2.0【文姐】",
-      "code": "【阵容码】#坦度成双莎米拉2.0【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwNzc0NzQxOTIy",
-      "note": null,
-      "created_at": "2026-06-16T02:15:23.966Z",
-      "updated_at": "2026-06-16T02:15:23.966Z"
     }
   ]
 }
