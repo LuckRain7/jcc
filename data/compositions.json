@@ -41,14 +41,6 @@
       "updated_at": "2026-06-15T08:00:08.000Z"
     },
     {
-      "id": "4f8a20fe-ccc2-49bb-85f7-54769e2b854a",
-      "name": "#开门幻灵兔子皎月【文姐】",
-      "note": null,
-      "code": "【阵容码】#开门幻灵兔子皎月【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgwMDcwMTA4NzI1",
-      "created_at": "2026-06-15T08:00:07.000Z",
-      "updated_at": "2026-06-15T08:00:07.000Z"
-    },
-    {
       "id": "c15631ea-9529-4f02-aea1-a4e8a9bfbf55",
       "name": "#闭环神谕女枪2.0【文姐】",
       "note": null,
@@ -103,6 +95,22 @@
       "code": "【阵容码】#新星一刀流三板甲剑魔【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwOTE1MTgzOTk0",
       "created_at": "2026-06-15T07:11:49.673Z",
       "updated_at": "2026-06-15T07:11:59.301Z"
+    },
+    {
+      "id": "bc218b15-7e78-43a6-b55c-a543fcd93dac",
+      "name": "#宝宝学院小法提莫【文姐】",
+      "code": "【阵容码】#宝宝学院小法提莫【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgxNTM0ODc5NDAw",
+      "note": "刚需宝宝学院开局（次选不侦察不变阵）",
+      "created_at": "2026-06-16T02:01:13.556Z",
+      "updated_at": "2026-06-16T02:01:13.556Z"
+    },
+    {
+      "id": "a00f8a1f-2655-4c2a-9246-356358079878",
+      "name": "#狂潮之心海魔至尊【文姐】",
+      "code": "【阵容码】#狂潮之心海魔至尊【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzc4NzYzODc3NjU2",
+      "note": null,
+      "created_at": "2026-06-16T02:13:41.383Z",
+      "updated_at": "2026-06-16T02:13:41.383Z"
     }
   ]
 }
