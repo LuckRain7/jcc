@@ -2,11 +2,11 @@
   "items": [
     {
       "id": "631b3a17-4947-438b-a4c6-bc23ab96b6f5",
-      "name": "guaishouruqin#8魔盗团【文姐】",
+      "name": "怪兽入侵 #8魔盗团【文姐】",
       "code": "【阵容码】#8魔盗团【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgxNjg3NzEwOTU0",
       "note": null,
       "created_at": "2026-06-17T11:06:03.545Z",
-      "updated_at": "2026-06-17T11:06:03.545Z"
+      "updated_at": "2026-06-22T02:17:30.155Z"
     },
     {
       "id": "7eb46ff8-6f82-4977-ac6e-f2224775c0b7",
@@ -151,6 +151,22 @@
       "code": "【阵容码】#新星一刀流三板甲剑魔【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwOTE1MTgzOTk0",
       "created_at": "2026-06-15T07:11:49.673Z",
       "updated_at": "2026-06-15T07:11:59.301Z"
+    },
+    {
+      "id": "4b95f193-1c91-49c5-b105-9974f4358608",
+      "name": "星神 #观星狙神霞",
+      "code": "【阵容码】#观星狙神霞【文姐】#MTEwMDUwMjQ0NDEyNjI2MjIxNzc5ODkwODg4Nzc1",
+      "note": null,
+      "created_at": "2026-06-22T02:17:21.441Z",
+      "updated_at": "2026-06-22T02:17:21.441Z"
+    },
+    {
+      "id": "27f52c95-0805-4a4e-a7b6-11c777930f4b",
+      "name": "星神 #救世主新星霞【文姐】",
+      "code": "【阵容码】#救世主新星霞【文姐】#MjE5OTQ2MzU0MjczMjU1NzIxNzc5Mjg5NjcyODI2",
+      "note": null,
+      "created_at": "2026-06-22T02:18:07.579Z",
+      "updated_at": "2026-06-22T02:18:07.579Z"
     }
   ]
 }
