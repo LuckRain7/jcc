@@ -1,36 +1,12 @@
 {
   "items": [
     {
-      "id": "21d2365f-ca57-497b-9115-edd1a878a672",
-      "name": "#后排杀手魔术师女枪",
-      "note": null,
-      "code": "【阵容码】#后排杀手魔术师女枪#MjIwMDM0MzI2NTUzMjA5MjkxNzgyMjEyOTQyMjk1",
-      "created_at": "2026-06-15T08:00:02.000Z",
-      "updated_at": "2026-06-23T11:09:41.827Z"
-    },
-    {
-      "id": "27f52c95-0805-4a4e-a7b6-11c777930f4b",
-      "name": "星神 #救世主新星霞【文姐】",
-      "code": "【阵容码】#救世主新星霞【文姐】#MjE5OTQ2MzU0MjczMjU1NzIxNzc5Mjg5NjcyODI2",
-      "note": null,
-      "created_at": "2026-06-22T02:18:07.579Z",
-      "updated_at": "2026-06-22T02:18:07.579Z"
-    },
-    {
       "id": "631b3a17-4947-438b-a4c6-bc23ab96b6f5",
-      "name": "怪兽入侵 #8魔盗团【文姐】",
+      "name": "guaishouruqin#8魔盗团【文姐】",
       "code": "【阵容码】#8魔盗团【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgxNjg3NzEwOTU0",
       "note": null,
       "created_at": "2026-06-17T11:06:03.545Z",
-      "updated_at": "2026-06-22T02:17:30.155Z"
-    },
-    {
-      "id": "4b95f193-1c91-49c5-b105-9974f4358608",
-      "name": "星神 #观星狙神霞",
-      "code": "【阵容码】#观星狙神霞【文姐】#MTEwMDUwMjQ0NDEyNjI2MjIxNzc5ODkwODg4Nzc1",
-      "note": null,
-      "created_at": "2026-06-22T02:17:21.441Z",
-      "updated_at": "2026-06-22T02:17:21.441Z"
+      "updated_at": "2026-06-17T11:06:03.545Z"
     },
     {
       "id": "7eb46ff8-6f82-4977-ac6e-f2224775c0b7",
@@ -153,6 +129,14 @@
       "updated_at": "2026-06-15T08:00:03.000Z"
     },
     {
+      "id": "21d2365f-ca57-497b-9115-edd1a878a672",
+      "name": "#后排杀手魔术师女枪【文姐】",
+      "note": null,
+      "code": "【阵容码】#后排杀手魔术师女枪【文姐】#MTEwMDgzOTE2OTU2MjI2ODYxNzc3NTE4NTkyNDU4",
+      "created_at": "2026-06-15T08:00:02.000Z",
+      "updated_at": "2026-06-15T08:00:02.000Z"
+    },
+    {
       "id": "3b4cd0a0-e65f-4007-8cbf-2b197c4ed105",
       "name": "#新星九五2.0【文姐】",
       "note": null,
@@ -167,38 +151,6 @@
       "code": "【阵容码】#新星一刀流三板甲剑魔【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwOTE1MTgzOTk0",
       "created_at": "2026-06-15T07:11:49.673Z",
       "updated_at": "2026-06-15T07:11:59.301Z"
-    },
-    {
-      "id": "71afcfe5-0218-4222-9483-72a8a1363736",
-      "name": "星神 #新星流血阿卡丽2.0",
-      "code": "【阵容码】#新星流血阿卡丽2.0#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyNzY0MzM0MTM2",
-      "note": null,
-      "created_at": "2026-06-30T03:35:33.475Z",
-      "updated_at": "2026-06-30T03:35:33.475Z"
-    },
-    {
-      "id": "1e620025-3208-4d23-8559-67b56bd10822",
-      "name": "星神 #牧羊人妖姬2.0",
-      "code": "【阵容码】#牧羊人妖姬2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyNDg3Mzg4ODU2",
-      "note": null,
-      "created_at": "2026-06-30T03:37:20.233Z",
-      "updated_at": "2026-06-30T03:37:20.233Z"
-    },
-    {
-      "id": "a206bd30-34a6-4cfc-a71f-4a3eea015ce0",
-      "name": "#重装神谕龙王2.0",
-      "code": "阵容码】#重装神谕龙王2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyNDg3MzcwNjI3",
-      "note": null,
-      "created_at": "2026-06-30T03:38:40.384Z",
-      "updated_at": "2026-06-30T03:38:40.384Z"
-    },
-    {
-      "id": "4e92149f-1a6c-4962-919c-54274a8fb443",
-      "name": "#观星璐璐（最佳泉水）",
-      "code": "【阵容码】#观星璐璐（最佳泉水）【文姐】#MjE5OTQ2MzU0MjczMjU1NzIxNzc5MzA5NTAyMTU0",
-      "note": null,
-      "created_at": "2026-06-30T03:40:01.300Z",
-      "updated_at": "2026-06-30T03:40:01.300Z"
     }
   ]
 }
