@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "id": "77972861-9dee-4f41-afea-729e83cd51b9",
+      "name": "#重装神谕龙王2.0",
+      "code": "【阵容码】#重装神谕龙王2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyNDg3MzcwNjI3",
+      "note": null,
+      "created_at": "2026-07-02T08:16:59.619Z",
+      "updated_at": "2026-07-02T08:16:59.619Z"
+    },
+    {
       "id": "631b3a17-4947-438b-a4c6-bc23ab96b6f5",
       "name": "guaishouruqin#8魔盗团【文姐】",
       "code": "【阵容码】#8魔盗团【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgxNjg3NzEwOTU0",
@@ -153,12 +161,12 @@
       "updated_at": "2026-06-15T07:11:59.301Z"
     },
     {
-      "id": "77972861-9dee-4f41-afea-729e83cd51b9",
-      "name": "#重装神谕龙王2.0",
-      "code": "【阵容码】#重装神谕龙王2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyNDg3MzcwNjI3",
+      "id": "0a4519a7-0b4c-479b-9b0c-89a0441c135b",
+      "name": "重装龙王妖姬",
+      "code": "【阵容码】#重装龙王妖姬#MjE5OTU3MzU2ODk2MjQ2NjcxNzgzMjQ1MDQzMjI1",
       "note": null,
-      "created_at": "2026-07-02T08:16:59.619Z",
-      "updated_at": "2026-07-02T08:16:59.619Z"
+      "created_at": "2026-07-06T10:33:08.446Z",
+      "updated_at": "2026-07-06T10:33:08.446Z"
     }
   ]
 }
