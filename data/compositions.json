@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "id": "54e09153-c08f-417e-ae4a-f12bf2fa5f9c",
+      "name": "#新星龙王霞",
+      "code": "【阵容码】#新星龙王霞【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyMTEwMTQ4NTIz",
+      "note": null,
+      "created_at": "2026-07-09T05:57:23.096Z",
+      "updated_at": "2026-07-09T05:57:23.096Z"
+    },
+    {
       "id": "0a4519a7-0b4c-479b-9b0c-89a0441c135b",
       "name": "重装龙王妖姬",
       "code": "【阵容码】#重装龙王妖姬#MjE5OTU3MzU2ODk2MjQ2NjcxNzgzMjQ1MDQzMjI1",
@@ -55,14 +63,6 @@
       "note": null,
       "created_at": "2026-06-16T02:14:37.422Z",
       "updated_at": "2026-06-16T02:14:37.422Z"
-    },
-    {
-      "id": "a00f8a1f-2655-4c2a-9246-356358079878",
-      "name": "#狂潮之心海魔至尊【文姐】",
-      "code": "【阵容码】#狂潮之心海魔至尊【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzc4NzYzODc3NjU2",
-      "note": null,
-      "created_at": "2026-06-16T02:13:41.383Z",
-      "updated_at": "2026-06-16T02:13:41.383Z"
     },
     {
       "id": "bc218b15-7e78-43a6-b55c-a543fcd93dac",
@@ -167,14 +167,6 @@
       "code": "【阵容码】#新星一刀流三板甲剑魔【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwOTE1MTgzOTk0",
       "created_at": "2026-06-15T07:11:49.673Z",
       "updated_at": "2026-06-15T07:11:59.301Z"
-    },
-    {
-      "id": "54e09153-c08f-417e-ae4a-f12bf2fa5f9c",
-      "name": "#新星龙王霞",
-      "code": "【阵容码】#新星龙王霞【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyMTEwMTQ4NTIz",
-      "note": null,
-      "created_at": "2026-07-09T05:57:23.096Z",
-      "updated_at": "2026-07-09T05:57:23.096Z"
     }
   ]
 }
