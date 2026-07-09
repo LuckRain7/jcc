@@ -12,25 +12,35 @@ const item = {
 };
 
 describe("CompositionCard", () => {
-  it("渲染名称与备注", () => {
+  it("默认收起：显示名称与复制按钮，备注隐藏", () => {
     render(<CompositionCard item={item} onEdit={() => {}} onDelete={() => {}} />);
     expect(screen.getByText("娑娜炮台")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "复制" })).toBeInTheDocument();
+    expect(screen.queryByText("三星娑娜核心")).not.toBeInTheDocument();
+  });
+
+  it("点击名称行展开后显示备注", async () => {
+    const user = userEvent.setup();
+    render(<CompositionCard item={item} onEdit={() => {}} onDelete={() => {}} />);
+    await user.click(screen.getByRole("button", { name: /娑娜炮台/ }));
     expect(screen.getByText("三星娑娜核心")).toBeInTheDocument();
   });
 
-  it("点编辑触发 onEdit", async () => {
+  it("展开后点编辑触发 onEdit", async () => {
     const onEdit = vi.fn();
     const user = userEvent.setup();
     render(<CompositionCard item={item} onEdit={onEdit} onDelete={() => {}} />);
+    await user.click(screen.getByRole("button", { name: /娑娜炮台/ }));
     await user.click(screen.getByRole("button", { name: "编辑" }));
     expect(onEdit).toHaveBeenCalledWith(item);
   });
 
-  it("点删除并确认后触发 onDelete", async () => {
+  it("展开后点删除并确认后触发 onDelete", async () => {
     const onDelete = vi.fn();
     vi.spyOn(window, "confirm").mockReturnValue(true);
     const user = userEvent.setup();
     render(<CompositionCard item={item} onEdit={() => {}} onDelete={onDelete} />);
+    await user.click(screen.getByRole("button", { name: /娑娜炮台/ }));
     await user.click(screen.getByRole("button", { name: "删除" }));
     expect(onDelete).toHaveBeenCalledWith("1");
   });

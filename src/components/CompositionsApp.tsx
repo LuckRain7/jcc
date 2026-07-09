@@ -25,6 +25,7 @@ export function CompositionsApp() {
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Composition | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [query, setQuery] = useState("");
 
   // 每次加载：先用本地缓存秒开，再从云端拉取覆盖（远端为准）
   useEffect(() => {
@@ -125,6 +126,14 @@ export function CompositionsApp() {
   }
 
   const sorted = [...items].sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
+  const q = query.trim().toLowerCase();
+  const visible = q
+    ? sorted.filter(
+        (item) =>
+          item.name.toLowerCase().includes(q) ||
+          (item.note ?? "").toLowerCase().includes(q),
+      )
+    : sorted;
   const syncLabel =
     syncStatus === "syncing"
       ? "同步中…"
@@ -136,26 +145,50 @@ export function CompositionsApp() {
 
   return (
     <main className="mx-auto max-w-2xl p-4 pb-24">
-      <header className="mb-4 flex items-center justify-between gap-2">
-        <h1 className="text-xl font-bold">金铲铲阵容码</h1>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={handleSync}
-            disabled={syncStatus === "syncing" || seedError}
-            className={`relative rounded-lg border px-2.5 py-1.5 text-sm font-medium disabled:opacity-50 ${
-              syncStatus === "error"
-                ? "border-red-400 text-red-600"
-                : "border-neutral-300 active:bg-neutral-100 dark:border-neutral-700 dark:active:bg-neutral-800"
-            }`}
-          >
-            {syncLabel}
-            {dirty && syncStatus === "idle" && (
-              <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-red-500" />
-            )}
-          </button>
+      <div className="sticky top-0 z-10 -mx-4 mb-4 border-b border-neutral-200 bg-white/90 px-4 pb-3 pt-4 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/90">
+        <header className="mb-3 flex items-center justify-between gap-2">
+          <h1 className="text-xl font-bold">金铲铲阵容码</h1>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleSync}
+              disabled={syncStatus === "syncing" || seedError}
+              className={`relative rounded-lg border px-2.5 py-1.5 text-sm font-medium disabled:opacity-50 ${
+                syncStatus === "error"
+                  ? "border-red-400 text-red-600"
+                  : "border-neutral-300 active:bg-neutral-100 dark:border-neutral-700 dark:active:bg-neutral-800"
+              }`}
+            >
+              {syncLabel}
+              {dirty && syncStatus === "idle" && (
+                <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-red-500" />
+              )}
+            </button>
+          </div>
+        </header>
+        <div className="relative">
+          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" aria-hidden>
+            🔍
+          </span>
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="搜索阵容名 / 备注…"
+            aria-label="搜索阵容"
+            className="w-full rounded-lg border border-neutral-300 bg-white py-2 pl-9 pr-9 text-base outline-none focus:border-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:focus:border-neutral-100"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => setQuery("")}
+              aria-label="清除搜索"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full px-2 py-0.5 text-neutral-400 active:bg-neutral-100 dark:active:bg-neutral-800"
+            >
+              ✕
+            </button>
+          )}
         </div>
-      </header>
+      </div>
 
       {loading && <p className="text-center text-neutral-500">加载中…</p>}
 
@@ -169,8 +202,12 @@ export function CompositionsApp() {
         <p className="mt-16 text-center text-neutral-400">还没有阵容，点右下角 + 添加</p>
       )}
 
-      <div className="space-y-3">
-        {sorted.map((item) => (
+      {!loading && !seedError && items.length > 0 && visible.length === 0 && (
+        <p className="mt-16 text-center text-neutral-400">没有匹配「{query}」的阵容</p>
+      )}
+
+      <div className="space-y-2">
+        {visible.map((item) => (
           <CompositionCard key={item.id} item={item} onEdit={openEdit} onDelete={handleDelete} />
         ))}
       </div>
