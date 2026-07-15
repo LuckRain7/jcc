@@ -206,7 +206,7 @@ export function CompositionsApp() {
         <p className="mt-16 text-center text-neutral-400">没有匹配「{query}」的阵容</p>
       )}
 
-      <div className="space-y-2">
+      <div className="grid grid-cols-2 gap-2">
         {visible.map((item) => (
           <CompositionCard key={item.id} item={item} onEdit={openEdit} onDelete={handleDelete} />
         ))}

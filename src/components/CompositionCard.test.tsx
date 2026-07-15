@@ -1,46 +1,64 @@
 /// <reference types="@testing-library/jest-dom" />
-import { describe, it, expect, vi, afterEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CompositionCard } from "./CompositionCard";
 
+beforeEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 afterEach(() => cleanup());
 
 const item = {
-  id: "1", name: "娑娜炮台", note: "三星娑娜核心", code: "TFTSET",
-  created_at: "t", updated_at: "t",
+  id: "1",
+  name: "#6暗星卡莎【文姐】",
+  note: "三星卡莎核心",
+  code: "TFTSET",
+  created_at: "t",
+  updated_at: "t",
 };
 
 describe("CompositionCard", () => {
-  it("默认收起：显示名称与复制按钮，备注隐藏", () => {
+  it("展示清洗后的标题与作者，隐藏 # 前缀", () => {
     render(<CompositionCard item={item} onEdit={() => {}} onDelete={() => {}} />);
-    expect(screen.getByText("娑娜炮台")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "复制" })).toBeInTheDocument();
-    expect(screen.queryByText("三星娑娜核心")).not.toBeInTheDocument();
+    expect(screen.getByText("6暗星卡莎")).toBeInTheDocument();
+    expect(screen.getByText("文姐")).toBeInTheDocument();
+    expect(screen.getByText("三星卡莎核心")).toBeInTheDocument();
   });
 
-  it("点击名称行展开后显示备注", async () => {
+  it("点击卡片复制阵容码并提示已复制", async () => {
     const user = userEvent.setup();
+    const writeText = vi.spyOn(navigator.clipboard, "writeText").mockResolvedValue(undefined);
     render(<CompositionCard item={item} onEdit={() => {}} onDelete={() => {}} />);
-    await user.click(screen.getByRole("button", { name: /娑娜炮台/ }));
-    expect(screen.getByText("三星娑娜核心")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /复制 6暗星卡莎 阵容码/ }));
+    expect(writeText).toHaveBeenCalledWith("TFTSET");
+    expect(await screen.findByText(/已复制/)).toBeInTheDocument();
   });
 
-  it("展开后点编辑触发 onEdit", async () => {
+  it("剪贴板失败时显示降级文本框", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(navigator.clipboard, "writeText").mockRejectedValue(new Error("denied"));
+    render(<CompositionCard item={item} onEdit={() => {}} onDelete={() => {}} />);
+    await user.click(screen.getByRole("button", { name: /复制 6暗星卡莎 阵容码/ }));
+    expect(await screen.findByDisplayValue("TFTSET")).toBeInTheDocument();
+  });
+
+  it("⋯ 菜单点编辑触发 onEdit", async () => {
     const onEdit = vi.fn();
     const user = userEvent.setup();
     render(<CompositionCard item={item} onEdit={onEdit} onDelete={() => {}} />);
-    await user.click(screen.getByRole("button", { name: /娑娜炮台/ }));
+    await user.click(screen.getByRole("button", { name: "更多操作" }));
     await user.click(screen.getByRole("button", { name: "编辑" }));
     expect(onEdit).toHaveBeenCalledWith(item);
   });
 
-  it("展开后点删除并确认后触发 onDelete", async () => {
+  it("⋯ 菜单点删除并确认后触发 onDelete", async () => {
     const onDelete = vi.fn();
     vi.spyOn(window, "confirm").mockReturnValue(true);
     const user = userEvent.setup();
     render(<CompositionCard item={item} onEdit={() => {}} onDelete={onDelete} />);
-    await user.click(screen.getByRole("button", { name: /娑娜炮台/ }));
+    await user.click(screen.getByRole("button", { name: "更多操作" }));
     await user.click(screen.getByRole("button", { name: "删除" }));
     expect(onDelete).toHaveBeenCalledWith("1");
   });
