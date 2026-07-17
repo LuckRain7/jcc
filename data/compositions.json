@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "id": "dc5387b3-e0f1-471c-b2e2-bb8ce2532f48",
+      "name": "【星神】#灵能剑圣龙王",
+      "code": "【阵容码】#灵能剑圣龙王【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgzOTY0OTk1NTk3",
+      "note": null,
+      "created_at": "2026-07-14T01:55:23.480Z",
+      "updated_at": "2026-07-14T01:55:23.480Z"
+    },
+    {
       "id": "cdc4a458-0c34-42b3-88d0-fbc32cd1b188",
       "name": "星神#牧羊人妖姬2.0",
       "code": "【阵容码】#牧羊人妖姬2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgyNDg3Mzg4ODU2",
@@ -185,12 +193,12 @@
       "updated_at": "2026-06-15T07:11:59.301Z"
     },
     {
-      "id": "dc5387b3-e0f1-471c-b2e2-bb8ce2532f48",
-      "name": "【星神】#灵能剑圣龙王",
-      "code": "【阵容码】#灵能剑圣龙王【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgzOTY0OTk1NTk3",
+      "id": "6ddab1ee-d153-4f6e-bcf9-91e751fe416e",
+      "name": "秀山九五狙",
+      "code": "【阵容码】#秀山九五狙#MjE5OTU3MzU2ODk2MjQ2NjcxNzg0MTM2MTgxNjg3",
       "note": null,
-      "created_at": "2026-07-14T01:55:23.480Z",
-      "updated_at": "2026-07-14T01:55:23.480Z"
+      "created_at": "2026-07-17T01:37:02.063Z",
+      "updated_at": "2026-07-17T01:37:02.063Z"
     }
   ]
 }
