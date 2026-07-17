@@ -73,3 +73,10 @@ export function updateLocal(
 export function deleteLocal(items: Composition[], id: string): Composition[] {
   return items.filter((it) => it.id !== id);
 }
+
+// 切换置顶：置顶写入当前时间戳，取消置顶置为 null。不改动 updated_at（置顶非内容编辑）。
+export function togglePin(items: Composition[], id: string): Composition[] {
+  return items.map((it) =>
+    it.id === id ? { ...it, pinned_at: it.pinned_at ? null : new Date().toISOString() } : it,
+  );
+}

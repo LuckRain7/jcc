@@ -10,6 +10,7 @@ import {
   createLocal,
   updateLocal,
   deleteLocal,
+  togglePin,
 } from "@/lib/localStore";
 import { CompositionCard } from "./CompositionCard";
 import { CompositionForm, type CompositionFormValue } from "./CompositionForm";
@@ -97,6 +98,10 @@ export function CompositionsApp() {
     persist(deleteLocal(items, id));
   }
 
+  function handleTogglePin(id: string) {
+    persist(togglePin(items, id));
+  }
+
   async function handleSync() {
     setSyncStatus("syncing");
     const snapshot = items; // 同步时刻的快照
@@ -125,15 +130,22 @@ export function CompositionsApp() {
     }
   }
 
-  const sorted = [...items].sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
   const q = query.trim().toLowerCase();
-  const visible = q
-    ? sorted.filter(
+  const matched = q
+    ? items.filter(
         (item) =>
           item.name.toLowerCase().includes(q) ||
           (item.note ?? "").toLowerCase().includes(q),
       )
-    : sorted;
+    : items;
+  // 置顶区按置顶时间倒序（最新置顶在前）；普通区按 updated_at 倒序。
+  const pinned = matched
+    .filter((item) => item.pinned_at)
+    .sort((a, b) => (a.pinned_at! < b.pinned_at! ? 1 : -1));
+  const rest = matched
+    .filter((item) => !item.pinned_at)
+    .sort((a, b) => (a.updated_at < b.updated_at ? 1 : -1));
+  const total = pinned.length + rest.length;
   const syncLabel =
     syncStatus === "syncing"
       ? "同步中…"
@@ -202,13 +214,39 @@ export function CompositionsApp() {
         <p className="mt-16 text-center text-neutral-400">还没有阵容，点右下角 + 添加</p>
       )}
 
-      {!loading && !seedError && items.length > 0 && visible.length === 0 && (
+      {!loading && !seedError && items.length > 0 && total === 0 && (
         <p className="mt-16 text-center text-neutral-400">没有匹配「{query}」的阵容</p>
       )}
 
+      {pinned.length > 0 && (
+        <section className="mb-4">
+          <div className="mb-2 flex items-center gap-2 text-xs font-medium text-neutral-400">
+            <span>📌 置顶</span>
+            <span className="h-px flex-1 bg-neutral-200 dark:bg-neutral-800" />
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {pinned.map((item) => (
+              <CompositionCard
+                key={item.id}
+                item={item}
+                onEdit={openEdit}
+                onDelete={handleDelete}
+                onTogglePin={handleTogglePin}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className="grid grid-cols-2 gap-2">
-        {visible.map((item) => (
-          <CompositionCard key={item.id} item={item} onEdit={openEdit} onDelete={handleDelete} />
+        {rest.map((item) => (
+          <CompositionCard
+            key={item.id}
+            item={item}
+            onEdit={openEdit}
+            onDelete={handleDelete}
+            onTogglePin={handleTogglePin}
+          />
         ))}
       </div>
 

@@ -20,14 +20,17 @@ export function CompositionCard({
   item,
   onEdit,
   onDelete,
+  onTogglePin,
 }: {
   item: Composition;
   onEdit: (item: Composition) => void;
   onDelete: (id: string) => void;
+  onTogglePin: (id: string) => void;
 }) {
   const [status, setStatus] = useState<"idle" | "copied" | "fallback">("idle");
   const [menuOpen, setMenuOpen] = useState(false);
   const { title, author } = parseName(item.name);
+  const pinned = Boolean(item.pinned_at);
 
   async function handleCopy() {
     try {
@@ -60,6 +63,7 @@ export function CompositionCard({
         }`}
       >
         <span className="line-clamp-2 pr-6 text-sm font-semibold leading-snug break-words">
+          {pinned && <span className="mr-1 text-neutral-400" aria-label="已置顶">📌</span>}
           {title}
         </span>
         {item.note && (
@@ -87,6 +91,16 @@ export function CompositionCard({
         <>
           <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} aria-hidden />
           <div className="absolute right-1 top-8 z-20 w-24 overflow-hidden rounded-lg border border-neutral-200 bg-white text-sm shadow-lg dark:border-neutral-700 dark:bg-neutral-900">
+            <button
+              type="button"
+              onClick={() => {
+                setMenuOpen(false);
+                onTogglePin(item.id);
+              }}
+              className="block w-full px-3 py-2 text-left active:bg-neutral-100 dark:active:bg-neutral-800"
+            >
+              {pinned ? "取消置顶" : "置顶"}
+            </button>
             <button
               type="button"
               onClick={() => {

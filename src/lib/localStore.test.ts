@@ -7,6 +7,7 @@ import {
   createLocal,
   updateLocal,
   deleteLocal,
+  togglePin,
 } from "./localStore";
 import type { Composition } from "./types";
 
@@ -83,5 +84,20 @@ describe("CRUD 纯函数", () => {
   it("deleteLocal 移除指定项", () => {
     const start = [sample, { ...sample, id: "2" }];
     expect(deleteLocal(start, "1").map((i) => i.id)).toEqual(["2"]);
+  });
+
+  it("togglePin 首次置顶写入时间戳，再次调用取消置顶", () => {
+    const pinned = togglePin([sample], "1");
+    expect(pinned[0].pinned_at).toBeTruthy();
+    const unpinned = togglePin(pinned, "1");
+    expect(unpinned[0].pinned_at).toBeNull();
+  });
+
+  it("togglePin 只影响目标项且不改动 updated_at", () => {
+    const start = [sample, { ...sample, id: "2" }];
+    const next = togglePin(start, "2");
+    expect(next[0].pinned_at).toBeUndefined();
+    expect(next[1].pinned_at).toBeTruthy();
+    expect(next[1].updated_at).toBe(sample.updated_at);
   });
 });
