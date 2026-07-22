@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "id": "d9f711ef-afec-48c1-8d08-dc5ca2e66d66",
+      "name": "未来斗虫伊泽2.0",
+      "code": "【阵容码】#未来斗虫伊泽2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzg0MjEwODExMzAw",
+      "note": null,
+      "created_at": "2026-07-20T04:36:52.653Z",
+      "updated_at": "2026-07-20T04:36:52.653Z"
+    },
+    {
       "id": "abaeff65-a02c-4ece-aa90-e461cc2e818e",
       "name": "无限奖励幻灵九五",
       "code": "【阵容码】#无限奖励幻灵九五#MjE5OTU3MzU2ODk2MjQ2NjcxNzg0MTkxNDE4MDA3",
@@ -108,9 +116,9 @@
       "id": "bc218b15-7e78-43a6-b55c-a543fcd93dac",
       "name": "#宝宝学院小法提莫【文姐】",
       "code": "【阵容码】#宝宝学院小法提莫【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzgxNTM0ODc5NDAw",
-      "note": "刚需宝宝学院开局（次选不侦察不变阵）",
+      "note": "刚需宝宝学院开局",
       "created_at": "2026-06-16T02:01:13.556Z",
-      "updated_at": "2026-06-16T02:01:13.556Z"
+      "updated_at": "2026-07-22T02:27:46.018Z"
     },
     {
       "id": "83049ac9-ded1-4b3c-8c8a-e2cce472b72d",
@@ -207,14 +215,6 @@
       "code": "【阵容码】#新星一刀流三板甲剑魔【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzgwOTE1MTgzOTk0",
       "created_at": "2026-06-15T07:11:49.673Z",
       "updated_at": "2026-06-15T07:11:59.301Z"
-    },
-    {
-      "id": "d9f711ef-afec-48c1-8d08-dc5ca2e66d66",
-      "name": "未来斗虫伊泽2.0",
-      "code": "【阵容码】#未来斗虫伊泽2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzg0MjEwODExMzAw",
-      "note": null,
-      "created_at": "2026-07-20T04:36:52.653Z",
-      "updated_at": "2026-07-20T04:36:52.653Z"
     }
   ]
 }
