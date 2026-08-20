@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "id": "f6e1120d-2e04-4d4f-b6bb-06c87f1d5a23",
+      "name": "律动双娜美",
+      "code": "【阵容码】#律动双娜美（一图铲铲）#MjIwMDg5OTkzNTk2NDAzNjIxNzg2NTQyNDE2OTQx",
+      "note": null,
+      "created_at": "2026-08-13T03:08:07.267Z",
+      "updated_at": "2026-08-13T03:08:07.267Z"
+    },
+    {
       "id": "ec0e9745-e99c-44c2-8bc9-5de3b888728a",
       "name": "斗虫伊泽2.0",
       "code": "【阵容码】#斗虫伊泽2.0【文姐】#MjE5OTU3MzU2ODk2MjQ2NjcxNzg1MzQ4NzkyMjAw",
@@ -185,12 +193,12 @@
       "updated_at": "2026-06-15T07:11:59.301Z"
     },
     {
-      "id": "f6e1120d-2e04-4d4f-b6bb-06c87f1d5a23",
-      "name": "律动双娜美",
-      "code": "【阵容码】#律动双娜美（一图铲铲）#MjIwMDg5OTkzNTk2NDAzNjIxNzg2NTQyNDE2OTQx",
+      "id": "e2d672f4-135b-40c3-b28b-4920e1b28579",
+      "name": "#重装狮子狗",
+      "code": "【阵容码】#重装狮子狗【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwNDcxOTkw",
       "note": null,
-      "created_at": "2026-08-13T03:08:07.267Z",
-      "updated_at": "2026-08-13T03:08:07.267Z"
+      "created_at": "2026-08-20T10:38:37.868Z",
+      "updated_at": "2026-08-20T10:38:37.868Z"
     }
   ]
 }
