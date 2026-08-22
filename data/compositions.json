@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "id": "6bba3ed0-6b5e-42c7-aca1-982ff571f4c0",
+      "name": "#重装狮子狗",
+      "code": "【阵容码】#重装狮子狗【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwNDcxOTkw",
+      "note": null,
+      "created_at": "2026-08-22T03:11:25.538Z",
+      "updated_at": "2026-08-22T03:11:25.538Z"
+    },
+    {
       "id": "56e03e87-0909-4664-960f-b27a94d7b2f0",
       "name": "#永森地狱火九五",
       "note": null,
@@ -41,12 +49,20 @@
       "updated_at": "2026-08-20T10:38:37.868Z"
     },
     {
-      "id": "6bba3ed0-6b5e-42c7-aca1-982ff571f4c0",
-      "name": "#重装狮子狗",
-      "code": "【阵容码】#重装狮子狗【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwNDcxOTkw",
+      "id": "ab64c92a-2445-4f12-b0dc-08f897af67b7",
+      "name": "重装鸡哥月男",
+      "code": "【阵容码】#重装鸡哥月男【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3Mzc3NjM4ODQ4",
       "note": null,
-      "created_at": "2026-08-22T03:11:25.538Z",
-      "updated_at": "2026-08-22T03:11:25.538Z"
+      "created_at": "2026-08-22T13:14:08.523Z",
+      "updated_at": "2026-08-22T13:14:08.523Z"
+    },
+    {
+      "id": "2813205d-e342-4aee-ab12-58f6cea31ab0",
+      "name": "重装爆头凯特琳",
+      "code": "【阵容码】#重装爆头凯特琳【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3MzgzMDY0NTg4",
+      "note": null,
+      "created_at": "2026-08-22T13:14:23.219Z",
+      "updated_at": "2026-08-22T13:14:23.219Z"
     }
   ]
 }
