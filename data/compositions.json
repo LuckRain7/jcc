@@ -1,20 +1,12 @@
 {
   "items": [
     {
-      "id": "66dd639e-1f7d-48ad-b9d8-84f3a755d1eb",
-      "name": "#魔女神谕莫甘娜",
-      "code": "【阵容码】#魔女神谕莫甘娜【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5Njg1MzM0",
+      "id": "56e03e87-0909-4664-960f-b27a94d7b2f0",
+      "name": "#永森地狱火九五",
       "note": null,
-      "created_at": "2026-06-16T02:14:37.422Z",
-      "updated_at": "2026-08-20T14:18:36.922Z"
-    },
-    {
-      "id": "83049ac9-ded1-4b3c-8c8a-e2cce472b72d",
-      "name": "#神谕双豹女",
-      "note": null,
-      "code": "【阵容码】#神谕双豹女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwMjU4NjY1",
-      "created_at": "2026-06-15T08:00:13.000Z",
-      "updated_at": "2026-08-20T14:18:56.007Z"
+      "code": "【阵容码】#永森地狱火九五【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5MzUwNjg2",
+      "created_at": "2026-06-15T08:00:10.000Z",
+      "updated_at": "2026-08-20T14:19:59.747Z"
     },
     {
       "id": "dc96c8c4-536e-4c72-9bfa-eb9bfc279570",
@@ -25,12 +17,20 @@
       "updated_at": "2026-08-20T14:19:17.560Z"
     },
     {
-      "id": "56e03e87-0909-4664-960f-b27a94d7b2f0",
-      "name": "#永森地狱火九五",
+      "id": "83049ac9-ded1-4b3c-8c8a-e2cce472b72d",
+      "name": "#神谕双豹女",
       "note": null,
-      "code": "【阵容码】#永森地狱火九五【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5MzUwNjg2",
-      "created_at": "2026-06-15T08:00:10.000Z",
-      "updated_at": "2026-08-20T14:19:59.747Z"
+      "code": "【阵容码】#神谕双豹女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwMjU4NjY1",
+      "created_at": "2026-06-15T08:00:13.000Z",
+      "updated_at": "2026-08-20T14:18:56.007Z"
+    },
+    {
+      "id": "66dd639e-1f7d-48ad-b9d8-84f3a755d1eb",
+      "name": "#魔女神谕莫甘娜",
+      "code": "【阵容码】#魔女神谕莫甘娜【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5Njg1MzM0",
+      "note": null,
+      "created_at": "2026-06-16T02:14:37.422Z",
+      "updated_at": "2026-08-20T14:18:36.922Z"
     },
     {
       "id": "e2d672f4-135b-40c3-b28b-4920e1b28579",
@@ -39,6 +39,14 @@
       "note": null,
       "created_at": "2026-08-20T10:38:37.868Z",
       "updated_at": "2026-08-20T10:38:37.868Z"
+    },
+    {
+      "id": "6bba3ed0-6b5e-42c7-aca1-982ff571f4c0",
+      "name": "#重装狮子狗",
+      "code": "【阵容码】#重装狮子狗【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwNDcxOTkw",
+      "note": null,
+      "created_at": "2026-08-22T03:11:25.538Z",
+      "updated_at": "2026-08-22T03:11:25.538Z"
     }
   ]
 }
