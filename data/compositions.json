@@ -1,6 +1,30 @@
 {
   "items": [
     {
+      "id": "d6e12db6-e211-40e8-a65f-769e2f21605a",
+      "name": "世纪和解双C",
+      "code": "【阵容码】#世纪和解双C【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg4Nzg0MDc2",
+      "note": null,
+      "created_at": "2026-08-25T03:19:58.923Z",
+      "updated_at": "2026-08-25T03:19:58.923Z"
+    },
+    {
+      "id": "44c07ddd-315f-45a0-bebe-b5ec2c75ef39",
+      "name": "无限激光小石头",
+      "code": "【阵容码】#无限激光小石头【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3Mjk1Nzg5NzM0",
+      "note": null,
+      "created_at": "2026-08-25T03:19:33.951Z",
+      "updated_at": "2026-08-25T03:19:33.951Z"
+    },
+    {
+      "id": "784398c0-c46c-4e00-99af-ec3f54cbe6a8",
+      "name": "献祭流石头猎手",
+      "code": "【阵容码】#献祭流石头猎手【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NTc3NzU4ODE1",
+      "note": null,
+      "created_at": "2026-08-25T03:17:31.562Z",
+      "updated_at": "2026-08-25T03:17:31.562Z"
+    },
+    {
       "id": "e02baa63-f76f-41fa-a806-ded836980802",
       "name": "特色剑圣（神器/斗转）",
       "code": "【阵容码】#特色剑圣（神器/斗转）【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NDkwNjM4NTg0",
@@ -89,28 +113,20 @@
       "updated_at": "2026-08-20T14:18:36.922Z"
     },
     {
-      "id": "784398c0-c46c-4e00-99af-ec3f54cbe6a8",
-      "name": "献祭流石头猎手",
-      "code": "【阵容码】#献祭流石头猎手【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NTc3NzU4ODE1",
+      "id": "40becf53-f1ae-4e9f-9047-9832d32ab5e9",
+      "name": "#7野怪鸡哥",
+      "code": "【阵容码】#7野怪鸡哥【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjQ3MzQzNjY5",
       "note": null,
-      "created_at": "2026-08-25T03:17:31.562Z",
-      "updated_at": "2026-08-25T03:17:31.562Z"
+      "created_at": "2026-08-26T04:12:15.277Z",
+      "updated_at": "2026-08-26T04:12:15.277Z"
     },
     {
-      "id": "44c07ddd-315f-45a0-bebe-b5ec2c75ef39",
-      "name": "无限激光小石头",
-      "code": "【阵容码】#无限激光小石头【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3Mjk1Nzg5NzM0",
+      "id": "678e134e-8a19-40b4-bba0-ee24f8bf3218",
+      "name": "铁王八蛇女",
+      "code": "【阵容码】#铁王八蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjgzNTA3MTAz",
       "note": null,
-      "created_at": "2026-08-25T03:19:33.951Z",
-      "updated_at": "2026-08-25T03:19:33.951Z"
-    },
-    {
-      "id": "d6e12db6-e211-40e8-a65f-769e2f21605a",
-      "name": "世纪和解双C",
-      "code": "【阵容码】#世纪和解双C【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg4Nzg0MDc2",
-      "note": null,
-      "created_at": "2026-08-25T03:19:58.923Z",
-      "updated_at": "2026-08-25T03:19:58.923Z"
+      "created_at": "2026-08-26T04:12:53.464Z",
+      "updated_at": "2026-08-26T04:12:53.464Z"
     }
   ]
 }
