@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "id": "678e134e-8a19-40b4-bba0-ee24f8bf3218",
+      "name": "铁王八蛇女",
+      "code": "【阵容码】#铁王八蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjgzNTA3MTAz",
+      "note": null,
+      "created_at": "2026-08-26T04:12:53.464Z",
+      "updated_at": "2026-08-26T04:12:53.464Z"
+    },
+    {
+      "id": "40becf53-f1ae-4e9f-9047-9832d32ab5e9",
+      "name": "#7野怪鸡哥",
+      "code": "【阵容码】#7野怪鸡哥【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjQ3MzQzNjY5",
+      "note": null,
+      "created_at": "2026-08-26T04:12:15.277Z",
+      "updated_at": "2026-08-26T04:12:15.277Z"
+    },
+    {
       "id": "d6e12db6-e211-40e8-a65f-769e2f21605a",
       "name": "世纪和解双C",
       "code": "【阵容码】#世纪和解双C【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg4Nzg0MDc2",
@@ -113,20 +129,12 @@
       "updated_at": "2026-08-20T14:18:36.922Z"
     },
     {
-      "id": "40becf53-f1ae-4e9f-9047-9832d32ab5e9",
-      "name": "#7野怪鸡哥",
-      "code": "【阵容码】#7野怪鸡哥【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjQ3MzQzNjY5",
+      "id": "cca36053-cca6-4c0e-a9d9-b61b184e5239",
+      "name": "闭环野兽双C",
+      "code": "【阵容码】#闭环野兽双C【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NzYyMDA4NzYx",
       "note": null,
-      "created_at": "2026-08-26T04:12:15.277Z",
-      "updated_at": "2026-08-26T04:12:15.277Z"
-    },
-    {
-      "id": "678e134e-8a19-40b4-bba0-ee24f8bf3218",
-      "name": "铁王八蛇女",
-      "code": "【阵容码】#铁王八蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjgzNTA3MTAz",
-      "note": null,
-      "created_at": "2026-08-26T04:12:53.464Z",
-      "updated_at": "2026-08-26T04:12:53.464Z"
+      "created_at": "2026-08-27T04:30:07.573Z",
+      "updated_at": "2026-08-27T04:30:07.573Z"
     }
   ]
 }
