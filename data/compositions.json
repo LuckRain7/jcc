@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "id": "eaed04a8-3712-43fd-b085-280491812cc8",
+      "name": "护卫飞天螳螂蛇女",
+      "code": "【阵容码】#护卫飞天螳螂蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODEwMDM5NDg2",
+      "note": null,
+      "created_at": "2026-08-27T06:17:14.603Z",
+      "updated_at": "2026-08-27T06:17:14.603Z"
+    },
+    {
+      "id": "cca36053-cca6-4c0e-a9d9-b61b184e5239",
+      "name": "闭环野兽双C",
+      "code": "【阵容码】#闭环野兽双C【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NzYyMDA4NzYx",
+      "note": null,
+      "created_at": "2026-08-27T04:30:07.573Z",
+      "updated_at": "2026-08-27T04:30:07.573Z"
+    },
+    {
       "id": "678e134e-8a19-40b4-bba0-ee24f8bf3218",
       "name": "铁王八蛇女",
       "code": "【阵容码】#铁王八蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjgzNTA3MTAz",
@@ -121,20 +137,28 @@
       "updated_at": "2026-08-20T14:18:36.922Z"
     },
     {
-      "id": "cca36053-cca6-4c0e-a9d9-b61b184e5239",
-      "name": "闭环野兽双C",
-      "code": "【阵容码】#闭环野兽双C【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NzYyMDA4NzYx",
+      "id": "746412e4-dc98-4f7a-9af2-0f6cf9abe37c",
+      "name": "7野怪小红大红",
+      "code": "【阵容码】#7野怪小红大红【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODM1MjM5MjY4",
       "note": null,
-      "created_at": "2026-08-27T04:30:07.573Z",
-      "updated_at": "2026-08-27T04:30:07.573Z"
+      "created_at": "2026-08-28T02:06:11.889Z",
+      "updated_at": "2026-08-28T02:06:11.889Z"
     },
     {
-      "id": "eaed04a8-3712-43fd-b085-280491812cc8",
-      "name": "护卫飞天螳螂蛇女",
-      "code": "【阵容码】#护卫飞天螳螂蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODEwMDM5NDg2",
+      "id": "d528a59e-a41b-4f09-bf5b-8bc3992cb5c2",
+      "name": "召唤裁决双C",
+      "code": "【阵容码】#召唤裁决双C【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODU3NzY2MTg3",
       "note": null,
-      "created_at": "2026-08-27T06:17:14.603Z",
-      "updated_at": "2026-08-27T06:17:14.603Z"
+      "created_at": "2026-08-28T02:06:28.494Z",
+      "updated_at": "2026-08-28T02:06:28.494Z"
+    },
+    {
+      "id": "25e3486f-4544-4564-92cc-890af6d4b564",
+      "name": "护卫飞天螳螂蛇女",
+      "code": "【阵容码】#护卫飞天螳螂蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODI2NTkyNzg1",
+      "note": null,
+      "created_at": "2026-08-28T02:06:46.812Z",
+      "updated_at": "2026-08-28T02:06:46.812Z"
     }
   ]
 }
