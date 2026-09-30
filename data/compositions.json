@@ -1,164 +1,36 @@
 {
   "items": [
     {
-      "id": "eaed04a8-3712-43fd-b085-280491812cc8",
-      "name": "护卫飞天螳螂蛇女",
-      "code": "【阵容码】#护卫飞天螳螂蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODEwMDM5NDg2",
+      "id": "b42ce967-e659-41ff-a912-1b11fb63cbc9",
+      "name": "T0+ 黑暗仪式不死流蜘蛛",
+      "code": "【阵容码】#黑暗仪式不死流蜘蛛【文姐】#MTEwMTgyODY1MTY3Mjk5MDExNzg5OTE1OTAyNjAw",
       "note": null,
-      "created_at": "2026-08-27T06:17:14.603Z",
-      "updated_at": "2026-08-27T06:17:14.603Z"
+      "created_at": "2026-09-30T02:36:02.389Z",
+      "updated_at": "2026-09-30T02:36:02.389Z"
     },
     {
-      "id": "cca36053-cca6-4c0e-a9d9-b61b184e5239",
-      "name": "闭环野兽双C",
-      "code": "【阵容码】#闭环野兽双C【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NzYyMDA4NzYx",
+      "id": "61017511-658b-4105-b728-da092a2e1a1d",
+      "name": "T0+ 7野怪变阵",
+      "code": "【阵容码】#7野怪变阵【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg5NzE4MDc0NDc5",
       "note": null,
-      "created_at": "2026-08-27T04:30:07.573Z",
-      "updated_at": "2026-08-27T04:30:07.573Z"
+      "created_at": "2026-09-30T02:36:26.978Z",
+      "updated_at": "2026-09-30T02:36:26.978Z"
     },
     {
-      "id": "678e134e-8a19-40b4-bba0-ee24f8bf3218",
-      "name": "铁王八蛇女",
-      "code": "【阵容码】#铁王八蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjgzNTA3MTAz",
+      "id": "e1983df0-a42c-41f8-8a35-21c33410cb1b",
+      "name": "T0+ 巨龙艾希九五",
+      "code": "【阵容码】#巨龙艾希九五【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg5MDU5ODA0MTI1",
       "note": null,
-      "created_at": "2026-08-26T04:12:53.464Z",
-      "updated_at": "2026-08-26T04:12:53.464Z"
+      "created_at": "2026-09-30T02:36:49.324Z",
+      "updated_at": "2026-09-30T02:36:49.324Z"
     },
     {
-      "id": "40becf53-f1ae-4e9f-9047-9832d32ab5e9",
-      "name": "#7野怪鸡哥",
-      "code": "【阵容码】#7野怪鸡哥【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NjQ3MzQzNjY5",
+      "id": "3b315281-b280-4d25-87f1-8afde27518fe",
+      "name": "T0  主宰牵狗变阵",
+      "code": "【阵容码】#主宰牵狗变阵【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg5NDc5NzQzNzM2",
       "note": null,
-      "created_at": "2026-08-26T04:12:15.277Z",
-      "updated_at": "2026-08-26T04:12:15.277Z"
-    },
-    {
-      "id": "44c07ddd-315f-45a0-bebe-b5ec2c75ef39",
-      "name": "无限激光小石头",
-      "code": "【阵容码】#无限激光小石头【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3Mjk1Nzg5NzM0",
-      "note": null,
-      "created_at": "2026-08-25T03:19:33.951Z",
-      "updated_at": "2026-08-25T03:19:33.951Z"
-    },
-    {
-      "id": "784398c0-c46c-4e00-99af-ec3f54cbe6a8",
-      "name": "献祭流石头猎手",
-      "code": "【阵容码】#献祭流石头猎手【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3NTc3NzU4ODE1",
-      "note": null,
-      "created_at": "2026-08-25T03:17:31.562Z",
-      "updated_at": "2026-08-25T03:17:31.562Z"
-    },
-    {
-      "id": "e02baa63-f76f-41fa-a806-ded836980802",
-      "name": "特色剑圣（神器/斗转）",
-      "code": "【阵容码】#特色剑圣（神器/斗转）【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3NDkwNjM4NTg0",
-      "note": null,
-      "created_at": "2026-08-24T06:09:03.438Z",
-      "updated_at": "2026-08-24T06:09:03.438Z"
-    },
-    {
-      "id": "11d22984-2639-4da1-9bb5-f76fbdf183ef",
-      "name": "无限奖励德莱文大龙九五",
-      "code": "【阵容码】#无限奖励德莱文大龙九五【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5ODc4ODIw",
-      "note": null,
-      "created_at": "2026-08-22T13:15:57.863Z",
-      "updated_at": "2026-08-22T13:15:57.863Z"
-    },
-    {
-      "id": "836693e4-9c8f-4a52-8ca7-002045f3e67b",
-      "name": "裁决芸阿娜",
-      "code": "【阵容码】#裁决芸阿娜【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwMDU1NzE5",
-      "note": null,
-      "created_at": "2026-08-22T13:15:40.618Z",
-      "updated_at": "2026-08-22T13:15:40.618Z"
-    },
-    {
-      "id": "3f9df185-65e8-4d12-9361-4af36a6acc65",
-      "name": "野兽莲华阿狸",
-      "code": "【阵容码】#野兽莲华阿狸【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3MjQxNTE3Njky",
-      "note": null,
-      "created_at": "2026-08-22T13:15:16.211Z",
-      "updated_at": "2026-08-22T13:15:16.211Z"
-    },
-    {
-      "id": "2813205d-e342-4aee-ab12-58f6cea31ab0",
-      "name": "重装爆头凯特琳",
-      "code": "【阵容码】#重装爆头凯特琳【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3MzgzMDY0NTg4",
-      "note": null,
-      "created_at": "2026-08-22T13:14:23.219Z",
-      "updated_at": "2026-08-22T13:14:23.219Z"
-    },
-    {
-      "id": "ab64c92a-2445-4f12-b0dc-08f897af67b7",
-      "name": "重装鸡哥月男",
-      "code": "【阵容码】#重装鸡哥月男【文姐】#MTEwMDUwOTI0NDU1MzcyODIxNzg3Mzc3NjM4ODQ4",
-      "note": null,
-      "created_at": "2026-08-22T13:14:08.523Z",
-      "updated_at": "2026-08-22T13:14:08.523Z"
-    },
-    {
-      "id": "6bba3ed0-6b5e-42c7-aca1-982ff571f4c0",
-      "name": "#重装狮子狗",
-      "code": "【阵容码】#重装狮子狗【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwNDcxOTkw",
-      "note": null,
-      "created_at": "2026-08-22T03:11:25.538Z",
-      "updated_at": "2026-08-22T03:11:25.538Z"
-    },
-    {
-      "id": "56e03e87-0909-4664-960f-b27a94d7b2f0",
-      "name": "#永森地狱火九五",
-      "note": null,
-      "code": "【阵容码】#永森地狱火九五【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5MzUwNjg2",
-      "created_at": "2026-06-15T08:00:10.000Z",
-      "updated_at": "2026-08-20T14:19:59.747Z"
-    },
-    {
-      "id": "dc96c8c4-536e-4c72-9bfa-eb9bfc279570",
-      "name": "#召唤裁决花妖",
-      "note": null,
-      "code": "【阵容码】#召唤裁决花妖【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg4OTAwODkz",
-      "created_at": "2026-06-15T08:00:12.000Z",
-      "updated_at": "2026-08-20T14:19:17.560Z"
-    },
-    {
-      "id": "83049ac9-ded1-4b3c-8c8a-e2cce472b72d",
-      "name": "#神谕双豹女",
-      "note": null,
-      "code": "【阵容码】#神谕双豹女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTkwMjU4NjY1",
-      "created_at": "2026-06-15T08:00:13.000Z",
-      "updated_at": "2026-08-20T14:18:56.007Z"
-    },
-    {
-      "id": "66dd639e-1f7d-48ad-b9d8-84f3a755d1eb",
-      "name": "#魔女神谕莫甘娜",
-      "code": "【阵容码】#魔女神谕莫甘娜【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3MTg5Njg1MzM0",
-      "note": null,
-      "created_at": "2026-06-16T02:14:37.422Z",
-      "updated_at": "2026-08-20T14:18:36.922Z"
-    },
-    {
-      "id": "746412e4-dc98-4f7a-9af2-0f6cf9abe37c",
-      "name": "7野怪小红大红",
-      "code": "【阵容码】#7野怪小红大红【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODM1MjM5MjY4",
-      "note": null,
-      "created_at": "2026-08-28T02:06:11.889Z",
-      "updated_at": "2026-08-28T02:06:11.889Z"
-    },
-    {
-      "id": "d528a59e-a41b-4f09-bf5b-8bc3992cb5c2",
-      "name": "召唤裁决双C",
-      "code": "【阵容码】#召唤裁决双C【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODU3NzY2MTg3",
-      "note": null,
-      "created_at": "2026-08-28T02:06:28.494Z",
-      "updated_at": "2026-08-28T02:06:28.494Z"
-    },
-    {
-      "id": "25e3486f-4544-4564-92cc-890af6d4b564",
-      "name": "护卫飞天螳螂蛇女",
-      "code": "【阵容码】#护卫飞天螳螂蛇女【文姐】#MjE5OTQ2MzU0MDA4NDk3MTUxNzg3ODI2NTkyNzg1",
-      "note": null,
-      "created_at": "2026-08-28T02:06:46.812Z",
-      "updated_at": "2026-08-28T02:06:46.812Z"
+      "created_at": "2026-09-30T02:37:20.186Z",
+      "updated_at": "2026-09-30T02:37:20.186Z"
     }
   ]
 }
